@@ -1,0 +1,28 @@
+<h1 align="center">Enter a URL that you would like shortened!</h1>
+
+<%= form_with model: @url, local: true do |form| %>
+
+	<% if @url.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p align="center">
+    <%= form.label "Enter Url" %><br>
+    <%= form.text_field :link %>
+  </p>
+ 
+  <p align="center">
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
